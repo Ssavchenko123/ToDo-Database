@@ -1,29 +1,31 @@
 'use strict';
 module.exports = {
-  async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Tasks', {
+  up(queryInterface, Sequelize) {
+    queryInterface.createTable('tasks', {
       id: {
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
+        allow_null: false,
+        auto_increment: true,
+        primary_key: true,
         type: Sequelize.INTEGER,
       },
       taskText: {
         validate: {
           len: [0, 255],
         },
+        allow_null: false,
         type: Sequelize.STRING,
       },
       isChecked: {
         type: Sequelize.BOOLEAN,
-        defaultValue: false,
+        default_value: false,
+        allow_null: false,
       },
       createdAt: {
-        allowNull: false,
+        allow_null: false,
         type: Sequelize.DATE,
       },
       updatedAt: {
-        allowNull: false,
+        allow_null: false,
         type: Sequelize.DATE,
       },
     });

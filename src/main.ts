@@ -5,7 +5,7 @@ import { ConfigService } from '@nestjs/config';
 import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  app.enableCors({ origin: '*' });
+  app.enableCors({ origin: 'https://api.t4.academy.dunice-testing.com/todo' });
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,

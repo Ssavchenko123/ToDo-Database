@@ -1,6 +1,6 @@
 import { Column, Table, Model } from 'sequelize-typescript';
 
-@Table
+@Table({ tableName: 'tasks', timestamps: true, underscored: true })
 export class Task extends Model<Task> {
   @Column({
     allowNull: false,

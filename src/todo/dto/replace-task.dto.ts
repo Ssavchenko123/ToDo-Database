@@ -2,7 +2,6 @@ import { Transform } from 'class-transformer';
 import { IsBoolean, IsNotEmpty, IsOptional, IsString } from 'class-validator';
 
 export class ReplaceTaskDto {
-  @IsOptional()
   @IsString()
   @IsNotEmpty()
   @Transform(({ value }) =>
@@ -12,10 +11,11 @@ export class ReplaceTaskDto {
       .replaceAll(/</g, '&lt;')
       .replaceAll(/>/g, '&gt;'),
   )
+  @IsOptional()
   taskText: string;
 
-  @IsOptional()
   @IsBoolean()
   @IsNotEmpty()
+  @IsOptional()
   isChecked: boolean;
 }
