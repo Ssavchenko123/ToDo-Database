@@ -3,34 +3,34 @@ module.exports = {
   up(queryInterface, Sequelize) {
     queryInterface.createTable('tasks', {
       id: {
-        allow_null: false,
-        auto_increment: true,
-        primary_key: true,
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      taskText: {
+      task_text: {
         validate: {
           len: [0, 255],
         },
-        allow_null: false,
+        allowNull: false,
         type: Sequelize.STRING,
       },
-      isChecked: {
+      is_checked: {
         type: Sequelize.BOOLEAN,
-        default_value: false,
-        allow_null: false,
+        defaultValue: false,
+        allowNull: false,
       },
-      createdAt: {
-        allow_null: false,
+      created_at: {
+        allowNull: false,
         type: Sequelize.DATE,
       },
-      updatedAt: {
-        allow_null: false,
+      updated_at: {
+        allowNull: false,
         type: Sequelize.DATE,
       },
     });
   },
   async down(queryInterface) {
-    await queryInterface.dropTable('Tasks');
+    await queryInterface.dropTable('tasks');
   },
 };
